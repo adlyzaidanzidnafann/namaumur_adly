@@ -4,19 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Mahasiswa</title>
+    <title>Tipe Data JavaScript</title>
 </head>
 <body>
-    <h2>Data Mahasiswa</h2>
+    <h2>Data dan Tipe Data JavaScript</h2>
+
+    <div id="hasil"></div>
 
     <script>
+        // Membuat variabel
         let nama = "Adly";
         let umur = 19;
-        let nilai = 85;
+        let mahasiswaAktif = true;
+        let hobi = ["Musik", "Gaming"];
 
-        document.write("Nama: " + nama + "<br>");
-        document.write("Umur: " + umur + " tahun<br>");
-        document.write("Nilai: " + nilai);
+        let mahasiswa = {
+            nama: "Adly",
+            umur: 19
+        };
+
+        // Menampilkan nilai dan tipe data
+        let data = [
+            ["String", nama, "String"],
+            ["Number", umur, "Number"],
+            ["Boolean", mahasiswaAktif, "Boolean"],
+            ["Array", hobi, "Array"],
+            ["Object", mahasiswa, "Object"]
+        ];
+
+        let hasil = document.getElementById("hasil");
+
+        data.forEach(function(item) {
+            let bagian = document.createElement("div");
+
+            bagian.innerHTML =
+                "<h3>" + item[0] + "</h3>" +
+                "<p>Nilai: " +
+                JSON.stringify(item[1]) + "</p>" +
+                "<p>Tipe data: " + item[2] + "</p>";
+
+            hasil.appendChild(bagian);
+        });
     </script>
 </body>
 </html>
